@@ -1,8 +1,44 @@
 package sequencias;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
 
 public class GeradorDeSequencias {
+	
+	private static Set<Long> sequencia;
+	
+	public static void main(String[] args) {
+//		System.out.println(Arrays.toString(geradorSequenciaAleatoria(1000000)));
+//		GeradorDeSequencias.linha();
+//		System.out.println(Arrays.toString(geradorSequenciaAleatoria(100000)));
+//		GeradorDeSequencias.linha();
+//		System.out.println(Arrays.toString(geradorSequenciaAleatoria(10000)));
+//		GeradorDeSequencias.linha();
+//		System.out.println(Arrays.toString(geradorSequenciaAleatoria(1000)));
+//		GeradorDeSequencias.linha();
+//		System.out.println(Arrays.toString(geradorSequenciaAleatoria(100)));
+//		GeradorDeSequencias.linha();
+//		System.out.println(Arrays.toString(geradorSequenciaAleatoria(10)));
+//		
+//		GeradorDeSequencias.linha();
+		
+		System.out.println(Arrays.toString(geradorSequenciaOrdenada(10000)));
+		GeradorDeSequencias.linha();
+		System.out.println(Arrays.toString(geradorSequenciaOrdenada(1000)));
+		GeradorDeSequencias.linha();
+		System.out.println(Arrays.toString(geradorSequenciaOrdenada(100)));
+		GeradorDeSequencias.linha();
+		System.out.println(Arrays.toString(geradorSequenciaOrdenada(10)));
+		
+	}
+	
+	private static void linha() {
+		System.err.println("\n-------------------------------\n");
+	}
 	
 	/**
 	 * Gerador de sequências ordenadas. (I)
@@ -11,20 +47,22 @@ public class GeradorDeSequencias {
 	 * @param t Tamanho da sequência que deve ser gerada.
 	 * @return A sequência ordenada com valores long.
 	 */
-	public static  long[] geradorSequenciaOrdenada(int t) {
-		long[] v = new long[t];
+	public static Long[] geradorSequenciaOrdenada(int t) {
 		
+		sequencia = new LinkedHashSet<Long>();
+		
+		preencherSequencia(t);
+
+		Long[] arr = new Long[t];
+		arr = sequencia.toArray(arr);
+		
+		return arr;
+	}
+
+	private static void preencherSequencia(int t) {
 		for(int i = 0; i < t; i++) {
-			long numero = (long) (Math.random() * 1000000);
-			
-			// Para evitar valores repetidos
-			if(!possuiNumero(v, numero))
-				v[i] = numero;
+			sequencia.add((long) i);
 		}
-		
-		Arrays.sort(v);
-		
-		return v;
 	}
 	
 	/**
@@ -34,24 +72,16 @@ public class GeradorDeSequencias {
 	 * @param t Tamanho da sequência que deve ser gerada.
 	 * @return A sequência inversamente ordenada com valores long.
 	 */
-	public static long[] geradorSequenciaInversamenteOrdenada(int t) {
-		long[] v = new long[t];
+	public static Long[] geradorSequenciaInversamenteOrdenada(int t) {
+		Long[] arr = geradorSequenciaOrdenada(t);
 		
-		for(int i = 0; i < t; i++) {
-			long numero = (long) (Math.random() * 1000000);
-			
-			// Para evitar valores repetidos
-			if(!possuiNumero(v, numero))
-				v[i] = numero;
+		int contador = 0;
+		
+		for(int i = arr.length-1; i >= 0; i--) {
+			arr[contador++] = arr[i];
 		}
 		
-		Arrays.sort(v);
-		
-		for(int i = 0; i < t/2; i++) {
-			trocar(v, i, t-1-i);
-		}
-		
-		return v;
+		return arr;
 	}
 	
 	/**
@@ -62,24 +92,16 @@ public class GeradorDeSequencias {
 	 * @param t Tamanho da sequência que deve ser gerada.
 	 * @return A sequência quase ordenada com valores long.
 	 */
-	public static  long[] geradorSequenciaQuaseOrdenada(int t) {
-		long[] v = new long[t];
+	public static Long[] geradorSequenciaQuaseOrdenada(int t) {
+		Long[] arr = geradorSequenciaOrdenada(t);
 		
-		for(int i = 0; i < t; i++) {
-			long numero = (long) (Math.random() * 1000000);
-			
-			// Para evitar valores repetidos
-			if(!possuiNumero(v, numero))
-				v[i] = numero;
+		int contador = 0;
+		
+		for(int i = t/2; i >= 0; i--) {
+			arr[contador++] = arr[i];
 		}
 		
-		Arrays.sort(v);
-		
-		for(int i = 0, j = (int) Math.ceil(t/2); i < t/2; i++, j++) {
-			trocar(v, i, j);
-		}
-		
-		return v;
+		return arr;
 	}
 	
 	/**
@@ -89,17 +111,19 @@ public class GeradorDeSequencias {
 	 * @param t Tamanho da sequência que deve ser gerada.
 	 * @return A sequência aleatória com valores long.
 	 */
-	public static long[] geradorSequenciaAleatoria(int t) {
-		long[] v = new long[t];
-		for(int i = 0; i < t; i++) {
-			long numero = /* 100 + */ (long) (Math.random() * 1000000);
-			
-			// Para evitar valores repetidos
-			if(!possuiNumero(v, numero)) {				
-				v[i] = numero;
-			}
-		}
-		return v;
+	public static Long[] geradorSequenciaAleatoria(int t) {
+		sequencia = new LinkedHashSet<Long>();
+		
+		preencherSequencia(t);
+		
+		List<Long> sequenciaList = new ArrayList<Long>(sequencia);
+		
+		Collections.shuffle(sequenciaList);
+
+		Long[] arr = new Long[t];
+		arr = sequenciaList.toArray(arr);
+		
+		return arr;
 	}
 	
 	/**
