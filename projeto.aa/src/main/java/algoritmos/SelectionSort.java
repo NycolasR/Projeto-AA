@@ -15,21 +15,23 @@ public class SelectionSort extends AlgoritmoOrdenacao {
 		System.out.println("Selection Sort");
 		Instant start = Instant.now();
 		
-		for (int i = 0; i < array.length; i++) {			
+		Long[] arrayCopy = array.clone();
+		
+		for (int i = 0; i < arrayCopy.length; i++) {			
 			// Identificando o índice de menor elemento de um vetor
 			int indexSmaller = i; // assume-se que o menor é o i-ésimo
 			
 			// A iteração em busca do menor valor deve acontecer ap�s
 			// a posição do i, pois este trecho já está ordenado
-			for (int j = i+1; j < array.length; j++) {
-				if(array[j] < array[indexSmaller])
+			for (int j = i+1; j < arrayCopy.length; j++) {
+				if(arrayCopy[j] < arrayCopy[indexSmaller])
 					indexSmaller = j;
 			}
 			
 			// troca do i-ésimo valor com o menor valor encontrado
-			Long aux = array[i];
-			array[i] = array[indexSmaller];
-			array[indexSmaller] = aux;
+			Long aux = arrayCopy[i];
+			arrayCopy[i] = arrayCopy[indexSmaller];
+			arrayCopy[indexSmaller] = aux;
 		}
 		
 		Instant end = Instant.now();

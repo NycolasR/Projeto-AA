@@ -15,6 +15,8 @@ public class BubbleSort extends AlgoritmoOrdenacao {
 		System.out.println("Bubble Sort");
 		Instant start = Instant.now();
 		
+		Long[] arrayCopy = array.clone();
+		
 		// Se não houveram mudanças, o array já está ordenado
 		boolean hasChanged = true;
 		
@@ -24,13 +26,13 @@ public class BubbleSort extends AlgoritmoOrdenacao {
 			// Contador para que o último elemento não seja analisado
 			int j = 0;
 			
-			for (int i = 0; i < array.length -1 - j; i++) {
+			for (int i = 0; i < arrayCopy.length -1 - j; i++) {
 				
-				if(array[i] > array[i+1]) {
+				if(arrayCopy[i] > arrayCopy[i+1]) {
 					// Troca do valor com seu sucessor
-					long aux = array[i];
-					array[i] = array[i+1];
-					array[i+1] = aux;
+					long aux = arrayCopy[i];
+					arrayCopy[i] = arrayCopy[i+1];
+					arrayCopy[i+1] = aux;
 					hasChanged = true;			
 				}
 			}

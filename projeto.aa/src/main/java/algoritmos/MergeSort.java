@@ -9,15 +9,18 @@ public class MergeSort extends AlgoritmoOrdenacao {
 	
 	@Override
 	public void sort(Long[] array, int i, int f) {
+		
+		Long[] arrayCopy = array.clone();
+		
 		if(i < f) {
 			int middle = (i + f) / 2;
-			sort(array, i, middle);
-			sort(array, middle+1, f);
-			merge(array, i, middle, f);
+			sort(arrayCopy, i, middle);
+			sort(arrayCopy, middle+1, f);
+			merge(arrayCopy, i, middle, f);
 		}
 	}
 
-	public void merge(Long array[], int left, int middle, int right) { 
+	private void merge(Long array[], int left, int middle, int right) { 
         // Obtendo o tamanho dos subarrays a serem intercalados 
         int n1 = middle - left + 1; 
         int n2 = right - middle; 

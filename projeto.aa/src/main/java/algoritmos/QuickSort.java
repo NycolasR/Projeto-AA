@@ -12,20 +12,22 @@ public class QuickSort extends AlgoritmoOrdenacao {
 	public void sort(Long[] array, int i, int f) {
 		int e = i, d = f;
 		
+		Long[] arrayCopy = array.clone();
+		
 		// Pivô calculado aleatoriamente
 		Random random = new Random();
-		long pivot = array[e + random.nextInt(d - e + 1)];
+		long pivot = arrayCopy[e + random.nextInt(d - e + 1)];
 		
 		while(e <= d) {
-			while(e <= f && array[e] < pivot)
+			while(e <= f && arrayCopy[e] < pivot)
 				e++;
-			while(d >= i && array[d] > pivot)
+			while(d >= i && arrayCopy[d] > pivot)
 				d--;
 			
 			if(e <= d) {
-				long aux = array[e];
-				array[e] = array[d];
-				array[d] = aux;
+				long aux = arrayCopy[e];
+				arrayCopy[e] = arrayCopy[d];
+				arrayCopy[d] = aux;
 				
 				e++;
 				d--;
@@ -33,8 +35,8 @@ public class QuickSort extends AlgoritmoOrdenacao {
 		}
 		
 		if(e < f) 
-			sort(array, e, f);
+			sort(arrayCopy, e, f);
 		if(d > i)
-			sort(array, i, d);
+			sort(arrayCopy, i, d);
 	}
 }
