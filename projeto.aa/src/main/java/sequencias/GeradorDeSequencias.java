@@ -7,37 +7,127 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 public class GeradorDeSequencias {
 	
 	private static Set<Long> sequencia;
 	
-	public static void main(String[] args) {
-//		System.out.println(Arrays.toString(geradorSequenciaAleatoria(1000000)));
-//		GeradorDeSequencias.linha();
-//		System.out.println(Arrays.toString(geradorSequenciaAleatoria(100000)));
-//		GeradorDeSequencias.linha();
-//		System.out.println(Arrays.toString(geradorSequenciaAleatoria(10000)));
-//		GeradorDeSequencias.linha();
-//		System.out.println(Arrays.toString(geradorSequenciaAleatoria(1000)));
-//		GeradorDeSequencias.linha();
-//		System.out.println(Arrays.toString(geradorSequenciaAleatoria(100)));
-//		GeradorDeSequencias.linha();
-//		System.out.println(Arrays.toString(geradorSequenciaAleatoria(10)));
+	public static void main(String[] args) throws InterruptedException {
+		System.err.println("<<< SEQUÊNCIA ORDENADA >>>");
+		Thread.sleep(500);
+		
+		System.out.println("Tamanho 10:   " + Arrays.toString(geradorSequenciaOrdenada(10)));
+		Thread.sleep(500);
+		
+		System.out.println("Tamanho 100:  " + Arrays.toString(geradorSequenciaOrdenada(100)));
+		Thread.sleep(500);
+		
+		System.out.println("Tamanho 1000: " + Arrays.toString(geradorSequenciaOrdenada(1000)));
+		Thread.sleep(500);
+		
+//		System.out.print("Tamanho 10000: ");
+//		Long[] arr10000Ord = geradorSequenciaOrdenada(10000);
+//		for (int i = 9999; i >= 0; i--) {
+//			Thread.sleep(250);
+//			System.out.print("[" + arr10000Ord[i] + "]");
+//		}
 //		
-//		GeradorDeSequencias.linha();
+//		System.out.println();
 		
-		System.out.println(Arrays.toString(geradorSequenciaOrdenada(10000)));
-		GeradorDeSequencias.linha();
-		System.out.println(Arrays.toString(geradorSequenciaOrdenada(1000)));
-		GeradorDeSequencias.linha();
-		System.out.println(Arrays.toString(geradorSequenciaOrdenada(100)));
-		GeradorDeSequencias.linha();
-		System.out.println(Arrays.toString(geradorSequenciaOrdenada(10)));
+//		System.out.print("Tamanho 100000: ");
+//		Long[] arr100000Ord = geradorSequenciaOrdenada(100000);
+//		for (int i = 99999; i >= 0; i--) {
+//			Thread.sleep(250);
+//			System.out.print("[" + arr100000Ord[i] + "]");
+//		}
+//		
+//		System.out.println();
 		
-	}
-	
-	private static void linha() {
-		System.err.println("\n-------------------------------\n");
+//		System.out.print("Tamanho 1000000: ");
+//		Long[] arr1000000Ord = geradorSequenciaOrdenada(1000000);
+//		for (int i = 999999; i >= 0; i--) {
+//			Thread.sleep(250);
+//			System.out.print("[" + arr1000000Ord[i] + "]");
+//		}
+		
+		System.out.println();
+		
+		System.err.println("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		
+		System.err.println("<<< SEQUÊNCIA ALEATÓRIA >>>");
+		Thread.sleep(500);
+		
+		System.out.println("Tamanho 10:   " + Arrays.toString(geradorSequenciaAleatoria(10)));
+		Thread.sleep(500);
+		
+		System.out.println("Tamanho 100:  " + Arrays.toString(geradorSequenciaAleatoria(100)));
+		Thread.sleep(500);
+		
+		System.out.println("Tamanho 1000: " + Arrays.toString(geradorSequenciaAleatoria(1000)));
+		Thread.sleep(500);
+		
+		System.out.print("Tamanho 10000: ");
+		Long[] arr10000Ale = geradorSequenciaAleatoria(10000);
+		for (int i = 9999; i >= 0; i--) {
+			Thread.sleep(250);
+			System.out.print("[" + arr10000Ale[i] + "]");
+		}
+		
+		System.out.println();
+		
+//		System.out.print("Tamanho 100000: ");
+//		Long[] arr100000Ale = geradorSequenciaAleatoria(100000);
+//		for (int i = 99999; i >= 0; i--) {
+//			Thread.sleep(250);
+//			System.out.print("[" + arr100000Ale[i] + "]");
+//		}
+//		
+//		System.out.println();
+		
+//		System.out.print("Tamanho 1000000: ");
+//		Long[] arr1000000Ale = geradorSequenciaAleatoria(1000000);
+//		for (int i = 999999; i >= 0; i--) {
+//			Thread.sleep(250);
+//			System.out.print("[" + arr1000000Ale[i] + "]");
+//		}
+		
+		System.err.println("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		
+		System.err.println("<<< SEQUÊNCIA QUASE ALEATÓRIA >>>");
+		Thread.sleep(500);
+		
+		System.out.println("Tamanho 10: " + Arrays.toString(geradorSequenciaQuaseOrdenada(10)));
+		Thread.sleep(500);
+		
+		System.out.println("Tamanho 100: " + Arrays.toString(geradorSequenciaQuaseOrdenada(100)));
+		Thread.sleep(500);
+		
+		System.out.println("Tamanho 1000: " + Arrays.toString(geradorSequenciaQuaseOrdenada(1000)));
+		Thread.sleep(500);
+		
+//		System.out.println("Tamanho 10000: " + Arrays.toString(geradorSequenciaQuaseOrdenada(10000)));
+//		System.out.println("Tamanho 100000: " + Arrays.toString(geradorSequenciaQuaseOrdenada(100000)));
+//		System.out.println("Tamanho 1000000: " + Arrays.toString(geradorSequenciaQuaseOrdenada(1000000)));
+
+		System.err.println("\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+		
+		System.err.println("<<< SEQUÊNCIA INVERSAMENTE ORDENADA >>>");
+		Thread.sleep(500);
+		
+		System.out.println("Tamanho 10:   " + Arrays.toString(geradorSequenciaInversamenteOrdenada(10)));
+		Thread.sleep(500);
+		
+		System.out.println("Tamanho 100:  " + Arrays.toString(geradorSequenciaInversamenteOrdenada(100)));
+		Thread.sleep(500);
+		
+		System.out.println("Tamanho 1000: " + Arrays.toString(geradorSequenciaInversamenteOrdenada(1000)));
+		Thread.sleep(500);
+		
+//		System.out.println("Tamanho 10000: " + Arrays.toString(geradorSequenciaInversamenteOrdenada(10000)));
+//		System.out.println("Tamanho 100000: " + Arrays.toString(geradorSequenciaInversamenteOrdenada(100000)));
+//		System.out.println("Tamanho 1000000: " + Arrays.toString(geradorSequenciaInversamenteOrdenada(1000000)));
+		
 	}
 	
 	/**
@@ -74,13 +164,14 @@ public class GeradorDeSequencias {
 	 */
 	public static Long[] geradorSequenciaInversamenteOrdenada(int t) {
 		Long[] arr = geradorSequenciaOrdenada(t);
+		Long[] arrCopy = arr.clone();
 		
 		int contador = 0;
-		
+
 		for(int i = arr.length-1; i >= 0; i--) {
-			arr[contador++] = arr[i];
+			arr[contador++] = arrCopy[i];
 		}
-		
+
 		return arr;
 	}
 	
@@ -95,12 +186,13 @@ public class GeradorDeSequencias {
 	public static Long[] geradorSequenciaQuaseOrdenada(int t) {
 		Long[] arr = geradorSequenciaOrdenada(t);
 		
-		int contador = 0;
+		Long[] metadeOrdenada = Arrays.copyOfRange(arr, 0, t/2);
+		Long[] metadeDesordenada = Arrays.copyOfRange(arr, t/2, t);
 		
-		for(int i = t/2; i >= 0; i--) {
-			arr[contador++] = arr[i];
-		}
+		Collections.shuffle(Arrays.asList(metadeDesordenada));
 		
+		arr = ArrayUtils.addAll(metadeOrdenada, metadeDesordenada);
+
 		return arr;
 	}
 	
@@ -122,50 +214,7 @@ public class GeradorDeSequencias {
 
 		Long[] arr = new Long[t];
 		arr = sequenciaList.toArray(arr);
-		
+
 		return arr;
-	}
-	
-	/**
-	 * Método usado para verificar a existência de um valor
-	 * num array com busca binária iterativa.
-	 * @param array Array no qual se deseja saber se existe um dado valor.
-	 * @param numero Valor que se deseja validar a presença no array.
-	 * @return True para valor encontrado e False para valor não encontrado.
-	 */
-	private static boolean possuiNumero(long[] array, long numero) {
-		long inicio = 0;
-		long fim = array.length - 1;
-		int meio;
-
-		while(inicio <= fim) {
-			
-			meio = (int) (inicio + fim) / 2;
-
-			if(array[meio] < numero)
-				inicio = meio + 1;
-			
-			else if(array[meio] > numero)
-				fim = meio - 1;
-			
-			else
-				return true;
-		}
-
-		return false;
-	}
-	
-	/**
-	 * Método usado para realizar a troca de posição
-	 * entre dois valores num dado array.
-	 * @param v Array no qual a troca deve ocorrer
-	 * @param i Índice de uma das posições
-	 * @param j Índice da posição cujo valor trocará de lugar com o valor
-	 * na posição i
-	 */
-	private static void trocar(long[] v, int i, int j) {
-		long aux = v[i];
-		v[i] = v[j];
-		v[j] = aux;
 	}
 }
