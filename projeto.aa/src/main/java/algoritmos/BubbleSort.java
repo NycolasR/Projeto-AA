@@ -11,7 +11,7 @@ import java.time.Instant;
 public class BubbleSort extends AlgoritmoOrdenacao {
 	
 	@Override
-	public long sort(long[] array) {
+	public long sort(Long[] array) {
 		System.out.println("Bubble Sort");
 		Instant start = Instant.now();
 		

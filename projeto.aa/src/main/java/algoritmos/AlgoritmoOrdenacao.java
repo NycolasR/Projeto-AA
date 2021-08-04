@@ -6,11 +6,11 @@ package algoritmos;
  *
  */
 public abstract class AlgoritmoOrdenacao {
-	public long sort(long[] array) {
+	public long sort(Long[] array) {
 		throw new UnsupportedOperationException("[ERRO] Operação de ordenação não suportada. Verifique os parâmetros de entrada");
 	}
 	
-	public void sort(long[] array, int i, int f) {
+	public void sort(Long[] array, int i, int f) {
 		throw new UnsupportedOperationException("[ERRO] Operação de ordenação não suportada. Verifique os parâmetros de entrada");
 	}
 }

@@ -12,7 +12,7 @@ import java.time.Instant;
 public class InsertionSort extends AlgoritmoOrdenacao {
 
 	@Override
-	public long sort(long[] array) {
+	public long sort(Long[] array) {
 		System.out.println("Insertion Sort");
 		Instant start = Instant.now();
 		

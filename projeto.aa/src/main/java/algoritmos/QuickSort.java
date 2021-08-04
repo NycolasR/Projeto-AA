@@ -9,7 +9,7 @@ import java.util.Random;
 public class QuickSort extends AlgoritmoOrdenacao {
 	
 	@Override
-	public void sort(long[] array, int i, int f) {
+	public void sort(Long[] array, int i, int f) {
 		int e = i, d = f;
 		
 		// Pivô calculado aleatoriamente

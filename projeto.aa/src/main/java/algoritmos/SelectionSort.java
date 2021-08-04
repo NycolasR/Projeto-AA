@@ -11,7 +11,7 @@ import java.time.Instant;
 public class SelectionSort extends AlgoritmoOrdenacao {
 	
 	@Override
-	public long sort(long[] array) {
+	public long sort(Long[] array) {
 		System.out.println("Selection Sort");
 		Instant start = Instant.now();
 		
@@ -27,7 +27,7 @@ public class SelectionSort extends AlgoritmoOrdenacao {
 			}
 			
 			// troca do i-ésimo valor com o menor valor encontrado
-			long aux = array[i];
+			Long aux = array[i];
 			array[i] = array[indexSmaller];
 			array[indexSmaller] = aux;
 		}

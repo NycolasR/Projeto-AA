@@ -8,7 +8,7 @@ package algoritmos;
 public class MergeSort extends AlgoritmoOrdenacao {
 	
 	@Override
-	public void sort(long[] array, int i, int f) {
+	public void sort(Long[] array, int i, int f) {
 		if(i < f) {
 			int middle = (i + f) / 2;
 			sort(array, i, middle);
@@ -17,14 +17,14 @@ public class MergeSort extends AlgoritmoOrdenacao {
 		}
 	}
 
-	public void merge(long array[], int left, int middle, int right) { 
+	public void merge(Long array[], int left, int middle, int right) { 
         // Obtendo o tamanho dos subarrays a serem intercalados 
         int n1 = middle - left + 1; 
         int n2 = right - middle; 
   
         // Criação dos arrays temporários
-        long Left[] = new long[n1]; 
-        long Right[] = new long[n2]; 
+        Long Left[] = new Long[n1]; 
+        Long Right[] = new Long[n2]; 
   
         // Respectivos valores copiados para os arrays temporários
         for (int i = 0; i < n1; ++i) 
