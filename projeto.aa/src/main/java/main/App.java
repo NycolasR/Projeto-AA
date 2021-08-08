@@ -35,10 +35,15 @@ public class App {
 	}
 
 	private static void executar() {
-		gerarArrays();
+		try {
+			gerarArrays();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
-	private static void gerarArrays() {
+	private static void gerarArrays() throws InterruptedException {
 //		int tamanho = 10;
 //		
 //		for(int i = 0; i < 6; i++) {
@@ -50,25 +55,32 @@ public class App {
 		
 		preencherArray(arraysTamanho1000000, 1000000);
 		
-		HandlerXMLFileArrays.converter(arraysTamanho1000000, "arraysTamanho1000000");
+//		Thread.sleep(5000);
+//		HandlerXMLFileArrays.converter(arraysTamanho1000000, "arraysTamanho1000000");
 	}
 
-	private static void preencherArray(Long[][] arrays, int tamanho) {
-		arrays[0] = GeradorDeSequencias.geradorSequenciaOrdenada(tamanho);
-		System.out.println("Gerada Sequencia Ordenada");
+	private static void preencherArray(Long[][] arrays, int tamanho) throws InterruptedException {
+//		arrays[0] = GeradorDeSequencias.geradorSequenciaOrdenada(tamanho);
+//		System.out.println("Gerada Sequencia Ordenada");
+//		HandlerXMLFileArrays.converter(arrays[0], "arraysTamanho1000000Ordenado");
+//		
+//		arrays[1] = GeradorDeSequencias.geradorSequenciaInversamenteOrdenada(tamanho);
+//		System.out.println("Gerada Sequencia Inversamente Ordenada");
+//		HandlerXMLFileArrays.converter(arrays[1], "arraysTamanho1000000InversamenteOrdenado");
 		
-		arrays[1] = GeradorDeSequencias.geradorSequenciaInversamenteOrdenada(tamanho);
-		System.out.println("Gerada Sequencia Inversamente Ordenada");
-		
-		for(int i = 2; i < 16; i++) {
-			arrays[i] = GeradorDeSequencias.geradorSequenciaQuaseOrdenada(tamanho);
+		Long[][] arrays1000000QuaseOrdenado = new Long[14][];
+		for(int i = 0; i < 14; i++) {
+			arrays1000000QuaseOrdenado[i] = GeradorDeSequencias.geradorSequenciaQuaseOrdenada(tamanho);
 		}
 		System.out.println("Gerada Sequencia Quase Ordenada");
+		HandlerXMLFileArrays.converter(arrays1000000QuaseOrdenado, "arraysTamanho1000000QuaseOrdenado");
 		
-		for(int k = 16; k < 30; k++) {
-			arrays[k] = GeradorDeSequencias.geradorSequenciaAleatoria(tamanho);
-		}
-		System.out.println("Gerada Sequencia Aleatoria");
+//		Long[][] arrays1000000Aleatorio = new Long[14][];
+//		for(int j = 0; j < 14; j++) {
+//			arrays1000000Aleatorio[j] = GeradorDeSequencias.geradorSequenciaAleatoria(tamanho);
+//		}
+//		System.out.println("Gerada Sequencia Aleatoria");
+//		HandlerXMLFileArrays.converter(arrays1000000Aleatorio, "arraysTamanho1000000Aleatorio");
 	}
 }
 
