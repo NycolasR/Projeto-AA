@@ -21,3 +21,10 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+/arraysTamanho10
+/arraysTamanho100
+/arraysTamanho1000
+/arraysTamanho10000
+/arraysTamanho100000
+/arraysTamanho1000000
