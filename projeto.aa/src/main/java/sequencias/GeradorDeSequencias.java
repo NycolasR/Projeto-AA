@@ -12,7 +12,7 @@ import org.apache.commons.lang3.ArrayUtils;
 public class GeradorDeSequencias {
 	
 	private static Set<Long> sequencia;
-	// teste
+	
 	public static void main(String[] args) throws InterruptedException {
 		System.err.println("<<< SEQUÊNCIA ORDENADA >>>");
 		Thread.sleep(500);

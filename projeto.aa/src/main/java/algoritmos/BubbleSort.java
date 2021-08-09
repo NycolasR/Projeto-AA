@@ -9,13 +9,13 @@ import java.time.Instant;
  *
  */
 public class BubbleSort extends AlgoritmoOrdenacao {
-	
+
 	@Override
-	public long sort(Long[] array) {
-		System.out.println("Bubble Sort");
-		Instant start = Instant.now();
+	public long[] sort(Long[] array) {
+		long comparacoesDeChaves = 0;
+		long movimentacoesDeRegistros = 0;
 		
-		Long[] arrayCopy = array.clone();
+		Instant start = Instant.now();
 		
 		// Se não houveram mudanças, o array já está ordenado
 		boolean hasChanged = true;
@@ -26,14 +26,16 @@ public class BubbleSort extends AlgoritmoOrdenacao {
 			// Contador para que o último elemento não seja analisado
 			int j = 0;
 			
-			for (int i = 0; i < arrayCopy.length -1 - j; i++) {
+			for (int i = 0; i < array.length -1 - j; i++) {
 				
-				if(arrayCopy[i] > arrayCopy[i+1]) {
+				// TODO Comparação de chaves (?)
+				if(array[i] > array[i+1]) {
+					
 					// Troca do valor com seu sucessor
-					long aux = arrayCopy[i];
-					arrayCopy[i] = arrayCopy[i+1];
-					arrayCopy[i+1] = aux;
-					hasChanged = true;			
+					long aux = array[i]; 
+					array[i] = array[i+1]; // TODO Movimentação de registro (?)
+					array[i+1] = aux; // TODO Movimentação de registro (?)
+					hasChanged = true;
 				}
 			}
 			j++;
@@ -43,6 +45,18 @@ public class BubbleSort extends AlgoritmoOrdenacao {
 
 		Duration duration = Duration.between(start, end);
 		long durationInMillisseconds = duration.toMillis();
-		return durationInMillisseconds;
+		
+		long[] resultados = {
+				durationInMillisseconds, 
+				comparacoesDeChaves, 
+				movimentacoesDeRegistros
+		};
+		
+		return resultados;
+	}
+	
+	@Override
+	public String toString() {
+		return "Bubble Sort";
 	}
 }

@@ -12,29 +12,41 @@ import java.time.Instant;
 public class InsertionSort extends AlgoritmoOrdenacao {
 
 	@Override
-	public long sort(Long[] array) {
-		System.out.println("Insertion Sort");
+	public long[] sort(Long[] array) {
+		long comparacoesDeChaves = 0;
+		long movimentacoesDeRegistros = 0;
+		
 		Instant start = Instant.now();
 		
-		Long[] arrayCopy = array.clone();
-		
-		for(int i = 0; i < arrayCopy.length - 1; i++) {			
+		for(int i = 0; i < array.length - 1; i++) {			
 			int j = i + 1;
-			long number = arrayCopy[j]; // Número a ser posicionado
+			long number = array[j]; // Número a ser posicionado
 			
 			// Colocando um número de sequência desordenado na sequência ordenada
-			while(j > 0 && number < arrayCopy[j-1]) {
-				arrayCopy[j] = arrayCopy[j-1];
+			while(j > 0 && number < array[j-1]) { // TODO Comparação de chaves (?)
+				array[j] = array[j-1]; // TODO Movimentação de registro (?)
 				j--;
 			}
 			
-			arrayCopy[j] = number;
+			array[j] = number;
 		}
 		
 		Instant end = Instant.now();
 
 		Duration duration = Duration.between(start, end);
 		long durationInMillisseconds = duration.toMillis();
-		return durationInMillisseconds;
+
+		long[] resultados = {
+				durationInMillisseconds, 
+				comparacoesDeChaves, 
+				movimentacoesDeRegistros
+		};
+		
+		return resultados;
+	}
+	
+	@Override
+	public String toString() {
+		return "Insertion Sort";
 	}
 }
