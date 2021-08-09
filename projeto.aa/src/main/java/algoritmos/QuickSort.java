@@ -36,9 +36,11 @@ public class QuickSort extends AlgoritmoOrdenacao {
 	private void sort(Long[] array, int inicio, int fim) {
 		int esquerda = inicio, direita = fim;
 		
+		// 
+		
 		// Pivô calculado aleatoriamente
 		Random random = new Random();
-		long pivot = array[esquerda + random.nextInt(direita - esquerda + 1)];
+		long pivot = array[esquerda + random.nextInt(direita - esquerda + 1)]; // TODO Movimentação de registro
 		
 		while(esquerda <= direita) { // TODO Comparação de chaves (?)
 			while(esquerda <= fim && array[esquerda] < pivot) // TODO Comparação de chaves (?)
@@ -47,7 +49,7 @@ public class QuickSort extends AlgoritmoOrdenacao {
 				direita--;
 			
 			if(esquerda <= direita) { // TODO Comparação de chaves (?)
-				long aux = array[esquerda];
+				long aux = array[esquerda]; // TODO Movimentação de registro (?)
 				array[esquerda] = array[direita]; // TODO Movimentação de registro (?)
 				array[direita] = aux; // TODO Movimentação de registro (?)
 				
@@ -56,9 +58,9 @@ public class QuickSort extends AlgoritmoOrdenacao {
 			}
 		}
 		
-		if(esquerda < fim) // TODO Comparação de chaves (?)
+		if(esquerda < fim)
 			sort(array, esquerda, fim);
-		if(direita > inicio) // TODO Comparação de chaves (?)
+		if(direita > inicio)
 			sort(array, inicio, direita);
 	}
 	

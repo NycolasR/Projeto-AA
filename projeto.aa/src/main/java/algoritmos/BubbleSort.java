@@ -28,13 +28,13 @@ public class BubbleSort extends AlgoritmoOrdenacao {
 			
 			for (int i = 0; i < array.length -1 - j; i++) {
 				
-				// TODO Comparação de chaves (?)
+				// TODO Comparação de chaves
 				if(array[i] > array[i+1]) {
 					
 					// Troca do valor com seu sucessor
-					long aux = array[i]; 
-					array[i] = array[i+1]; // TODO Movimentação de registro (?)
-					array[i+1] = aux; // TODO Movimentação de registro (?)
+					long aux = array[i]; // TODO Movimentação de registro
+					array[i] = array[i+1]; // TODO Movimentação de registro
+					array[i+1] = aux; // TODO Movimentação de registro
 					hasChanged = true;
 				}
 			}
