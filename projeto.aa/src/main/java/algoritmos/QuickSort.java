@@ -36,22 +36,29 @@ public class QuickSort extends AlgoritmoOrdenacao {
 	private void sort(Long[] array, int inicio, int fim) {
 		int esquerda = inicio, direita = fim;
 		
-		// 
-		
 		// Pivô calculado aleatoriamente
 		Random random = new Random();
-		long pivot = array[esquerda + random.nextInt(direita - esquerda + 1)]; // TODO Movimentação de registro
+		long pivot = array[esquerda + random.nextInt(direita - esquerda + 1)]; // TODo Movimentação de registro
+		this.movimentacoesDeRegistros++;
 		
-		while(esquerda <= direita) { // TODO Comparação de chaves (?)
-			while(esquerda <= fim && array[esquerda] < pivot) // TODO Comparação de chaves (?)
-				esquerda++;
-			while(direita >= inicio && array[direita] > pivot) // TODO Comparação de chaves (?)
-				direita--;
+		while(esquerda <= direita) {
 			
-			if(esquerda <= direita) { // TODO Comparação de chaves (?)
-				long aux = array[esquerda]; // TODO Movimentação de registro (?)
-				array[esquerda] = array[direita]; // TODO Movimentação de registro (?)
-				array[direita] = aux; // TODO Movimentação de registro (?)
+			while(esquerda <= fim && array[esquerda] < pivot) { // TODo Comparação de chave
+				this.comparacoesDeChaves++;
+				esquerda++;
+			}
+			
+			while(direita >= inicio && array[direita] > pivot) { // TODo Comparação de chaves
+				this.comparacoesDeChaves++;
+				direita--;
+			}
+			
+			if(esquerda <= direita) {
+				long aux = array[esquerda]; // TODo Movimentação de registro
+				array[esquerda] = array[direita]; // TODo Movimentação de registro
+				array[direita] = aux; // TODo Movimentação de registro
+				
+				this.movimentacoesDeRegistros += 3;
 				
 				esquerda++;
 				direita--;

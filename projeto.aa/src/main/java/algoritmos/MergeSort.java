@@ -53,38 +53,53 @@ public class MergeSort extends AlgoritmoOrdenacao {
         Long arrayDireito[] = new Long[n2]; 
   
         // Respectivos valores copiados para os arrays temporários
-        for (int i = 0; i < n1; ++i) 
-            arrayEsquerdo[i] = array[esquerda + i]; // TODO Movimentação de registro (?)
-        for (int j = 0; j < n2; ++j) 
-            arrayDireito[j] = array[meio + 1 + j]; // TODO Movimentação de registro (?)
+        for (int i = 0; i < n1; ++i) {
+            arrayEsquerdo[i] = array[esquerda + i]; // TODo Movimentação de registro
+            this.movimentacoesDeRegistros++;
+        }
         
+        for (int j = 0; j < n2; ++j) {
+            arrayDireito[j] = array[meio + 1 + j]; // TODo Movimentação de registro
+            this.movimentacoesDeRegistros++;
+        }
+            
         /* Intercalando os arrays temporários */
         // Indices iniciais do primeiro e segundo sub-arrays 
         int i = 0, j = 0; 
   
         // Indicice inicial do array intercalado 
         int k = esquerda; 
-        while (i < n1 && j < n2) { 
-            if (arrayEsquerdo[i] <= arrayDireito[j]) { // TODO Comparação de chaves (?)
-                array[k] = arrayEsquerdo[i]; // TODO Movimentação de registro (?)
-                i++; 
-            } else { // TODO Comparação de chaves (?)
-                array[k] = arrayDireito[j]; // TODO Movimentação de registro (?)
+        while (i < n1 && j < n2) {
+        	
+        	this.comparacoesDeChaves++;
+            if (arrayEsquerdo[i] <= arrayDireito[j]) { // TODo Comparação de chaves
+            	
+                array[k] = arrayEsquerdo[i]; // TODo Movimentação de registro
+                i++;
+                
+            } else {
+            	
+                array[k] = arrayDireito[j]; // TODo Movimentação de registro
                 j++; 
             } 
+            this.movimentacoesDeRegistros++; // Entrnado no if ou no else, será feita uma movimentação de registro
             k++; 
         } 
   
         // Cópia dos elementos restantes de arrayEsquerdo[] se existirem
-        while (i < n1) { // TODO Comparação de chaves (?)
-            array[k] = arrayEsquerdo[i]; // TODO Movimentação de registro (?)
+        while (i < n1) {
+            array[k] = arrayEsquerdo[i]; // TODo Movimentação de registro
+            this.movimentacoesDeRegistros++;
+            
             i++; 
             k++; 
         } 
   
         // Cópia dos elementos restantes de arrayDireito[] se existirem
-        while (j < n2) { // TODO Comparação de chaves (?)
-            array[k] = arrayDireito[j]; // TODO Movimentação de registro (?)
+        while (j < n2) {
+            array[k] = arrayDireito[j]; // TODo Movimentação de registro
+            this.movimentacoesDeRegistros++;
+            
             j++; 
             k++; 
         }

@@ -20,15 +20,22 @@ public class InsertionSort extends AlgoritmoOrdenacao {
 		
 		for(int i = 0; i < array.length - 1; i++) {			
 			int j = i + 1;
+			
+			// TODo Movimentação de registro
 			long number = array[j]; // Número a ser posicionado
+			movimentacoesDeRegistros++;
 			
 			// Colocando um número de sequência desordenado na sequência ordenada
-			while(j > 0 && number < array[j-1]) { // TODO Comparação de chaves (?)
-				array[j] = array[j-1]; // TODO Movimentação de registro (?)
+			while(j > 0 && number < array[j-1]) { // TODo Comparação de chaves
+				comparacoesDeChaves++;
+				
+				array[j] = array[j-1]; // TODo Movimentação de registro
+				movimentacoesDeRegistros++;
 				j--;
 			}
 			
-			array[j] = number;
+			array[j] = number; // TODo Movimentação de registro
+			movimentacoesDeRegistros++;
 		}
 		
 		Instant end = Instant.now();

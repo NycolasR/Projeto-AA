@@ -21,17 +21,22 @@ public class SelectionSort extends AlgoritmoOrdenacao {
 			// Identificando o índice de menor elemento de um vetor
 			int indexSmaller = i; // assume-se que o menor é o i-ésimo
 			
-			// A iteração em busca do menor valor deve acontecer ap�s
+			// A iteração em busca do menor valor deve acontecer após
 			// a posição do i, pois este trecho já está ordenado
-			for (int j = i+1; j < array.length; j++) { // TODO Comparação de chaves (?)
-				if(array[j] < array[indexSmaller])
+			for (int j = i+1; j < array.length; j++) {
+				
+				comparacoesDeChaves++;
+				if(array[j] < array[indexSmaller]) { // TODo Comparação de chaves
 					indexSmaller = j;
+				}
 			}
 			
 			// troca do i-ésimo valor com o menor valor encontrado
-			Long aux = array[i];
-			array[i] = array[indexSmaller]; // TODO Movimentação de registro (?)
-			array[indexSmaller] = aux; // TODO Movimentação de registro (?)
+			Long aux = array[i]; // TODo Movimentação de registro
+			array[i] = array[indexSmaller]; // TODo Movimentação de registro
+			array[indexSmaller] = aux; // TODo Movimentação de registro
+			
+			movimentacoesDeRegistros += 3;
 		}
 		
 		Instant end = Instant.now();

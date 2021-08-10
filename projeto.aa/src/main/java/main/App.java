@@ -27,9 +27,9 @@ public class App {
 	private static Long[][] arraysTamanho1000000;
 	
 	public static void main(String[] args) {
-//		arraysTamanho10 = HandlerArrays.getArraysTamanho10();
+		arraysTamanho10 = HandlerArrays.getArraysTamanho10();
 //		arraysTamanho100 = HandlerArrays.getArraysTamanho100();
-		arraysTamanho1000 = HandlerArrays.getArraysTamanho1000();
+//		arraysTamanho1000 = HandlerArrays.getArraysTamanho1000();
 //		arraysTamanho10000 = HandlerArrays.getArraysTamanho10000();
 //		arraysTamanho100000 = HandlerArrays.getArraysTamanho100000();
 		
@@ -38,20 +38,20 @@ public class App {
 	}
 
 	private static void ordernar() {
-		handlerOrdenacoes.setAlgoritmoOrdenacao(new BubbleSort());
-		handlerOrdenacoes.sortArrays(arraysTamanho1000);
+//		handlerOrdenacoes.setAlgoritmoOrdenacao(new BubbleSort());
+//		handlerOrdenacoes.sortArrays(arraysTamanho1000);
 		
 		handlerOrdenacoes.setAlgoritmoOrdenacao(new SelectionSort());
-		handlerOrdenacoes.sortArrays(arraysTamanho1000);
+		handlerOrdenacoes.sortArrays(arraysTamanho10);
 		
 		handlerOrdenacoes.setAlgoritmoOrdenacao(new InsertionSort());
-		handlerOrdenacoes.sortArrays(arraysTamanho1000);
+		handlerOrdenacoes.sortArrays(arraysTamanho10);
 		
 		handlerOrdenacoes.setAlgoritmoOrdenacao(new MergeSort());
-		handlerOrdenacoes.sortArrays(arraysTamanho1000);
+		handlerOrdenacoes.sortArrays(arraysTamanho10);
 		
 		handlerOrdenacoes.setAlgoritmoOrdenacao(new QuickSort());
-		handlerOrdenacoes.sortArrays(arraysTamanho1000);
+		handlerOrdenacoes.sortArrays(arraysTamanho10);
 	}
 }
 
