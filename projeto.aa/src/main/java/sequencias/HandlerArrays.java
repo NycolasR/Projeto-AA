@@ -37,28 +37,24 @@ public class HandlerArrays {
 //		HandlerXMLFileArrays.converter(arraysTamanho500000, "arraysTamanho500000");
 	}
 
-	public static void preencherArray(Long[][] arrays, int tamanho) throws InterruptedException {
+	public static Long[][] preencherArray(Long[][] arrays, int tamanho) {
 		arrays[0] = GeradorDeSequencias.geradorSequenciaOrdenada(tamanho);
 		System.out.println("Gerada Sequencia Ordenada");
-//		HandlerXMLFileArrays.converter(arrays[0], "arraysTamanho1000000Ordenado");
 		
 		arrays[1] = GeradorDeSequencias.geradorSequenciaInversamenteOrdenada(tamanho);
 		System.out.println("Gerada Sequencia Inversamente Ordenada");
-//		HandlerXMLFileArrays.converter(arrays[1], "arraysTamanho1000000InversamenteOrdenado");
 		
-//		Long[][] arrays1000000QuaseOrdenado = new Long[14][];
 		for(int i = 2; i < 16; i++) {
 			arrays[i] = GeradorDeSequencias.geradorSequenciaQuaseOrdenada(tamanho);
 		}
 		System.out.println("Gerada Sequencia Quase Ordenada");
-//		HandlerXMLFileArrays.converter(arrays1000000QuaseOrdenado, "arraysTamanho1000000QuaseOrdenado");
 		
-//		Long[][] arrays1000000Aleatorio = new Long[14][];
 		for(int j = 16; j < 30; j++) {
 			arrays[j] = GeradorDeSequencias.geradorSequenciaAleatoria(tamanho);
 		}
 		System.out.println("Gerada Sequencia Aleatoria");
-//		HandlerXMLFileArrays.converter(arrays1000000Aleatorio, "arraysTamanho1000000Aleatorio");
+		
+		return arrays;
 	}
 
 	

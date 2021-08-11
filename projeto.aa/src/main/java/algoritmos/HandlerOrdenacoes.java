@@ -74,23 +74,25 @@ public class HandlerOrdenacoes {
 		System.err.println("Tamanho dos arrays: " + tamanho);
 		System.err.println("Algoritmo utilizado: " + algoritmoOrdenacao);
 		
-		System.err.println("\n>> TEMPO DE EXECUÇÃO <<");
-		System.err.println("\nSequência ORDENADA:               " + resultadosSequenciaOrdenada[0] + " milissegundo(s).");
-		System.err.println("Sequência INVERSAMENTE ORDENADA:  " + resultadosSequenciaInversamenteOrdenada[0] + " milissegundo(s).");
-		System.err.println("Sequência QUASE ORDENADA (média): " + (tempoTotalQuaseOrdenada / 14) + " milissegundo(s).");
-		System.err.println("Sequência ALEATÓRIA (média):      " + (tempoTotalAleatoria / 14) + " milissegundo(s).");
+		System.err.println("\n>> ORDENADA <<");
+		System.err.println("Tempo de execução:          " + resultadosSequenciaOrdenada[0] + " milissegundo(s).");
+		System.err.println("Comparações de chaves:      " + resultadosSequenciaOrdenada[1] + " comparações.");
+		System.err.println("Movimentações de registros: " + resultadosSequenciaOrdenada[2] + " movimentações.");
 		
-		System.err.println("\n>> COMPARAÇÕES DE CHAVES <<");
-		System.err.println("\nSequência ORDENADA:               " + resultadosSequenciaOrdenada[1] + " comparações.");
-		System.err.println("Sequência INVERSAMENTE ORDENADA:  " + resultadosSequenciaInversamenteOrdenada[1] + " comparações.");
-		System.err.println("Sequência QUASE ORDENADA (média): " + (comparacoesTotaisDeChavesQuaseOrdenada / 14) + " comparações.");
-		System.err.println("Sequência ALEATÓRIA (média):      " + (comparacoesTotaisDeChavesAleatoria / 14) + " comparações.");
+		System.err.println("\n>> INVERSAMENTE ORDENADA <<");		
+		System.err.println("Tempo de execução:          " + resultadosSequenciaInversamenteOrdenada[0] + " milissegundo(s).");
+		System.err.println("Comparações de chaves:      " + resultadosSequenciaInversamenteOrdenada[1] + " comparações.");
+		System.err.println("Movimentações de registros: " + resultadosSequenciaInversamenteOrdenada[2] + " movimentações.");
 		
-		System.err.println("\n>> MOVIMENTAÇÕES DE REGISTROS <<");
-		System.err.println("\nSequência ORDENADA:               " + resultadosSequenciaOrdenada[2] + " movimentações.");
-		System.err.println("Sequência INVERSAMENTE ORDENADA:  " + resultadosSequenciaInversamenteOrdenada[2] + " movimentações.");
-		System.err.println("Sequência QUASE ORDENADA (média): " + (movimentacoesTotaisDeRegistrosQuaseOrdenada / 14) + " movimentações.");
-		System.err.println("Sequência ALEATÓRIA (média):      " + (movimentacoesTotaisDeRegistrosAleatoria / 14) + " movimentações.");
+		System.err.println("\n>> QUASE ORDENADA <<");
+		System.err.println("Tempo de execução:          " + (tempoTotalQuaseOrdenada / 14) + " milissegundo(s).");
+		System.err.println("Comparações de chaves:      " + (comparacoesTotaisDeChavesQuaseOrdenada / 14) + " comparações.");
+		System.err.println("Movimentações de registros: " + (movimentacoesTotaisDeRegistrosQuaseOrdenada / 14) + " movimentações.");
+		
+		System.err.println("\n>> ALEATÓRIA <<");
+		System.err.println("Tempo de execução:          " + (tempoTotalAleatoria / 14) + " milissegundo(s).");
+		System.err.println("Comparações de chaves:      " + (comparacoesTotaisDeChavesAleatoria / 14) + " comparações.");
+		System.err.println("Movimentações de registros: " + (movimentacoesTotaisDeRegistrosAleatoria / 14) + " movimentações.");
 	}
 
 	private void printResultado(int tamanho, Long[] array) {
