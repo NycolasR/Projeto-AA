@@ -61,7 +61,7 @@ public class HandlerOrdenacoes {
 		long comparacoesTotaisDeChavesQuaseOrdenada = 0;
 		long movimentacoesTotaisDeRegistrosQuaseOrdenada = 0;
 		
-		for (int i = 5; i < 16; i++) {
+		for (int i = 2; i < 16; i++) {
 			long[] resultadosSequenciaQuaseOrdenada = algoritmoOrdenacao.sort(arraysCopy[i]);
 			System.out.println("(posição [" + i + "]) Sequência ordenada em " + resultadosSequenciaQuaseOrdenada[0] + " milissegundos."
 					+ " Comparações de chaves: " + resultadosSequenciaQuaseOrdenada[1] 
